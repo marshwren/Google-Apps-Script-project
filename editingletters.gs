@@ -9,9 +9,6 @@ function createletters() {
 
   //folder where letters will be stored
   const folder = DriveApp.getFolderById(folderid);
-
-  const templateFile = DriveApp.getFileById(templatedoc); // Getting template file outside the loop
-
   for (let i = 1; i < data.length; i++) { //skipping header row
     const rownumber = i + 1; //numbering skips the header row 
     const fullname = data[i][0];  //accessing full name column
