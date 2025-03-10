@@ -5,25 +5,20 @@ function createletters() {
   spreadsheet.setActiveSheet(spreadsheet.getSheetByName("Sheet1"));
   const sheet = spreadsheet.getActiveSheet();
   const data = sheet.getDataRange().getValues();
-
-  //folder where letters will be stored
-  const folder = DriveApp.getFolderById(folderid);
-  
-  //getting the template file
-  const templatefile = DriveApp.getFileById(templatedoc);
+  const folder = DriveApp.getFolderById(folderid); //folder where letters will be stored
+  const templatefile = DriveApp.getFileById(templatedoc); //getting the template file
 
   for (let i = 1; i < data.length; i++) { //skipping header row
     const rownumber = i + 1; //numbering skips the header row 
     const fullname = data[i][0];  //accessing full name column
     const address = data[i][1];  //address column
     const firstname = data[i][2]; //first name column
-    //creating a copy of the template doc
     const title = `${rownumber} ${fullname} donation letter`; //making the title for each letter
-    const newdoc = templatefile.makeCopy(`${fullname} letter`, folder);
+    const newdoc = templatefile.makeCopy(`${fullname} letter`, folder); //creating a copy of the template doc
     const newdocid = newdoc.getId();
     const doc = DocumentApp.openById(newdocid);
-    const body = doc.getBody();
-    
+    const body = doc.getBody(); 
+
     //replacing placeholders with data from the google sheet
     body.replaceText("{{full name}}", fullname || "");
     body.replaceText("{{address}}", address ? address.replace(", ", "\n") : "");
