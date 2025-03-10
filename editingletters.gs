@@ -1,4 +1,3 @@
-function generateletters() {createletters();}
 function createletters() {
   const templatedoc = "14hRyX6yyfcyh8amy1XR0PNJ6kNcMzOCOyr1xqGpX_vo";
   const folderid = "1O_ZuzZ0ljynipKblZbjMqtnmBnSXH6L2";
