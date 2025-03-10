@@ -19,11 +19,9 @@ function createletters() {
     const doc = DocumentApp.openById(newdocid);
     const body = doc.getBody(); 
 
-    //replacing placeholders with data from the google sheet
-    body.replaceText("{{full name}}", fullname || "");
+    body.replaceText("{{full name}}", fullname || ""); //replacing placeholders with data from the google sheet
     body.replaceText("{{address}}", address ? address.replace(", ", "\n") : "");
     body.replaceText("{{first name}}", firstname || "");
-    //changing title
-    doc.setName(title);
+    doc.setName(title); //changing title
     doc.saveAndClose()};
     Logger.log('all docs complete')};
