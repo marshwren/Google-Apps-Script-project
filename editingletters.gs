@@ -17,7 +17,6 @@ function createletters() {
     const fullname = data[i][0];  //accessing full name column
     const address = data[i][1];  //address column
     const firstname = data[i][2]; //first name column
-
     //creating a copy of the template doc
     const title = `${rownumber} ${fullname} donation letter`; //making the title for each letter
     const newdoc = templatefile.makeCopy(`${fullname} letter`, folder);
